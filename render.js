@@ -17,13 +17,13 @@ const movieBlurb = (array) => {
     let result = ``
     for (ele of array) {
         result +=
-            `<tr data-id="${ele.id}">
+            `<tr>
             <td>${ele.title}</td>
             <td>${ele.director}</td>
             <td>${ele.year}</td>
             <td>${ele.rating}</td>
-            <td><a class="button is-dark update">Edit</a></td>
-            <td><a class="button is-dark remove">Delete</a></td>
+            <td><a data-id="${ele.id}" class="button is-dark update">Edit</a></td>
+            <td><a data-id="${ele.id}" class="button is-dark remove">Delete</a></td>
             </tr>`
             
 

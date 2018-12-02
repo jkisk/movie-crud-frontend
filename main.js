@@ -15,14 +15,14 @@ const addEventListeners = () => {
         ele.addEventListener('click', (e) => {
 
             console.log("delete event listener triggered")
-            console.log(e)
+            console.log(e.target)
 
-            axios.delete(`http/localhost:3000/movies${e.target.getAttribute("data-id")}`)
+            axios.delete(`http://localhost:3000/movies/${e.target.getAttribute("data-id")}`)
                 .then((data) => {
                     let result = data.data.result
                     blurbArea.innerHTML = render.movieBlurb(result)
 
-                    addEventListeners()
+                    display()
 
                 })
         })
@@ -31,7 +31,7 @@ const addEventListeners = () => {
     for (ele of editArray) {
         ele.addEventListener('click', (e) => {
             console.log('edit event listener triggered')
-            window.location = `edit.html?id=${e.target.data.id}`
+            window.location = `edit.html?id=${e.target.getAttribute('data-id')}`
             splashArea.innerHTML = render.movieSplash(e.target.data)
 
         })
